@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Molotov Lounge — La carte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <canvas id="sparks" aria-hidden="true"></canvas>
+    <div class="hero-content">
+      <span class="tag">Bar 100 % imaginaire</span>
+      <h1 class="neon">Le Molotov<br><span>Lounge</span></h1>
+      <p>Des cocktails explosifs préparés avec les émotions les plus inflammables de votre semaine. Service rapide, frustration garantie.</p>
+      <a href="#carte" class="btn">Voir la carte 🔥</a>
+    </div>
+  </header>
+
+  <main class="menu" id="carte">
+    <div class="menu-header">
+      <h2>La Carte Explosive</h2>
+      <p>Cliquez sur un cocktail pour découvrir sa recette (totalement fictive).</p>
+    </div>
+
+    <div class="controls" role="group" aria-label="Filtrer par niveau de piquant">
+      <button class="filter active" data-filter="all">Tous</button>
+      <button class="filter" data-filter="doux">Doux 🔥</button>
+      <button class="filter" data-filter="releve">Relevé 🔥🔥🔥</button>
+      <button class="filter" data-filter="explosif">Explosif 🔥🔥🔥🔥🔥</button>
+      <button class="btn" id="surprise">Surprends-moi !</button>
+    </div>
+
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty">Aucun cocktail ici. Même le barman est à court d'idées.</p>
+  </main>
+
+  <section class="newsletter" id="newsletter">
+    <h2>Newsletter</h2>
+    <p class="newsletter-intro">Recevez chaque semaine un nouveau cocktail imaginaire. Zéro spam, que de la frustration.</p>
+
+    <form class="newsletter-form" id="newsletter-form">
+      <div class="field">
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" name="nom" required
+               minlength="2" maxlength="20" pattern="[A-Za-zÀ-ÖØ-öø-ÿ]{2,20}"
+               title="Entre 2 et 20 lettres (majuscules ou minuscules)"
+               placeholder="Dupont" autocomplete="family-name">
+      </div>
+
+      <div class="field">
+        <label for="prenom">Prénom</label>
+        <input type="text" id="prenom" name="prenom" required
+               minlength="2" maxlength="20" pattern="[A-Za-zÀ-ÖØ-öø-ÿ]{2,20}"
+               title="Entre 2 et 20 lettres (majuscules ou minuscules)"
+               placeholder="Camille" autocomplete="given-name">
+      </div>
+
+      <div class="field field-full">
+        <label for="email">Adresse mail</label>
+        <input type="email" id="email" name="email" required
+               placeholder="camille.dupont@exemple.fr" autocomplete="email">
+      </div>
+
+      <div class="field field-full">
+        <label for="boisson">Quelle est votre boisson préférée ?</label>
+        <select id="boisson" name="boisson" required>
+          <option value="" disabled selected>-- Choisissez une boisson --</option>
+          <option value="burn-out-sunrise">Le Burn-Out Sunrise</option>
+          <option value="spritz-de-colere">Le Spritz de Colère</option>
+          <option value="mojito-passif-agressif">Le Mojito Passif-Agressif</option>
+          <option value="deadline-daiquiri">Le Deadline Daiquiri</option>
+          <option value="pina-procrastinada">La Piña Procrastinada</option>
+          <option value="cosmo-lundi">Le Cosmo-Lundi</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn field-full">S'inscrire 🔥</button>
+      <p class="form-message field-full" id="form-message" role="status"></p>
+    </form>
+  </section>
+
+  <footer>
+    <strong>Aucun cocktail de cette carte n'existe. Buvez de l'eau.</strong>
+    Le Molotov Lounge décline toute responsabilité en cas de lundi matin.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
